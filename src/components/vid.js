@@ -1,9 +1,7 @@
 import YouTube from 'react-youtube';
-
+import React from 'react';
 export default function BackGround(props) {
   const options = {
-    height: '390',
-    width: '640',
     playerVars: {
       autoplay: 1,
       controls: 0,
@@ -15,7 +13,7 @@ export default function BackGround(props) {
   };
 
   return (
-    <div className="z-10 flex justify-center">
+    <div className="flex justify-center " style={{ z: -1 }}>
       <YouTube
         videoId={props.vid}
         opts={options}
