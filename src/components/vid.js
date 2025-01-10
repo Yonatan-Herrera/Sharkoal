@@ -13,7 +13,7 @@ export default function BackGround(props) {
   };
 
   return (
-    <div className="flex justify-center " style={{ z: -1 }}>
+    <div className="flex justify-center my-2 size-full" style={{ z: -1 }}>
       <YouTube
         videoId={props.vid}
         opts={options}
