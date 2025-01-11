@@ -1,5 +1,5 @@
 // import react from 'react';
-import { TextField, Input, FormControl, InputLabel } from '@mui/material';
+import { TextField } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 export default function SearchBar() {
@@ -25,6 +25,40 @@ export default function SearchBar() {
         value={searchInput}
         onChange={changeHandler}
         onKeyDown={search}
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            color: '#fff',
+
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'aqua',
+            },
+            '&:hover:not(.Mui-focused)': {
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'seagreen',
+              },
+            },
+            '&.Mui-focused': {
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'aqua',
+              },
+            },
+          },
+
+          '& .MuiInputLabel-outlined': {
+            color: 'aqua',
+            '&.Mui-focused': {
+              color: 'aqua',
+            },
+          },
+          '&:hover:not(.Mui-focused)': {
+            '& .MuiInputLabel-outlined': {
+              color: 'seagreen',
+            },
+          },
+          '& .Mui-focused': {
+            color: 'seagreen',
+          },
+        }}
       />
     </div>
   );
