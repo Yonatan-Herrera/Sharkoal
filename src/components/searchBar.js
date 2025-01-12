@@ -56,7 +56,7 @@ export default function SearchBar() {
             },
           },
           '& .Mui-focused': {
-            color: 'seagreen',
+            color: 'aqua',
           },
         }}
       />
