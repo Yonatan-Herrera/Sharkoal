@@ -15,6 +15,7 @@ export default function BackGround(props) {
   return (
     <div className="flex justify-center my-2 size-full" style={{ z: -1 }}>
       <YouTube
+        className="p-2"
         videoId={props.vid}
         opts={options}
         onReady={(event) => {

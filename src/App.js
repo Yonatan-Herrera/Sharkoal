@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import SearchBar from './components/searchBar';
-import Tabs from './components/tabs';
+import Menu from './components/menu';
 import Vid from './components/vid';
 function App() {
   // document.addEventListener('click', async () => {
@@ -11,8 +11,8 @@ function App() {
   // add webview to ensure that we can see website
   return (
     <div className="App  ">
-      <Tabs />
-      <Vid vid="vPXsanGmQjU" />
+      <Menu />
+      <Vid vid="ZVTDEZvFU6k" />
       <SearchBar />
     </div>
   );
