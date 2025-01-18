@@ -3,6 +3,7 @@ import React from 'react';
 import SearchBar from './components/searchBar';
 import Menu from './components/menu';
 import Vid from './components/vid';
+import { Google } from '@mui/icons-material';
 function App() {
   // document.addEventListener('click', async () => {
   //   // const response = await window.electronExpose.sendMessage();
@@ -54,7 +55,7 @@ function App() {
   return (
     <div className="App  ">
       <Menu />
-      <Vid vid="pMlYGwFFM3I" />
+      <Vid vid="" />
       <SearchBar
         DIVClassName={properties.parentClass}
         classname={properties.className}
@@ -62,6 +63,7 @@ function App() {
         Label={properties.label}
         Variant={properties.variant}
         SX={properties.sx}
+        icon={<Google />}
       />
     </div>
   );

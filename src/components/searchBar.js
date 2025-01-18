@@ -1,5 +1,5 @@
 // import react from 'react';
-import { TextField } from '@mui/material';
+import { TextField, InputAdornment } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 export default function SearchBar(prop) {
@@ -27,6 +27,15 @@ export default function SearchBar(prop) {
         onKeyDown={search}
         sx={prop.SX}
         size={prop.SIZE}
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment sx={{ color: 'white' }} position="start">
+                {prop.icon}
+              </InputAdornment>
+            ),
+          },
+        }}
       />
     </div>
   );

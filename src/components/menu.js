@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import { ArrowBack, ArrowForward, Refresh } from '@mui/icons-material';
+import { ArrowBack, ArrowForward, Refresh, Search } from '@mui/icons-material';
 import SearchBar from './searchBar';
+
 // properties for the search bar
 /* DIVClassName={properties.parentClass}
         classname={properties.className}
@@ -16,8 +17,42 @@ export default function Menu(props) {
   };
   const searchProps = {
     parentClass: 'mx-4 my-3',
-    className: 'w-full',
+    className: 'w-[42rem]',
     size: 'small',
+    sx: {
+      '& .MuiOutlinedInput-root': {
+        color: '#fff',
+
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'aqua',
+        },
+        '&:hover:not(.Mui-focused)': {
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'seagreen',
+          },
+        },
+        '&.Mui-focused': {
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'aqua',
+          },
+        },
+      },
+
+      '& .MuiInputLabel-outlined': {
+        color: 'aqua',
+        '&.Mui-focused': {
+          color: 'aqua',
+        },
+      },
+      '&:hover:not(.Mui-focused)': {
+        '& .MuiInputLabel-outlined': {
+          color: 'seagreen',
+        },
+      },
+      '& .Mui-focused': {
+        color: 'aqua',
+      },
+    },
   };
 
   return (
@@ -40,6 +75,8 @@ export default function Menu(props) {
           DIVClassName={searchProps.parentClass}
           classname={searchProps.className}
           SIZE={searchProps.size}
+          SX={searchProps.sx}
+          icon={<Search />}
         />
       </div>
     </div>
