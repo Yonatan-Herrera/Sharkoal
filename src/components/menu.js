@@ -16,8 +16,8 @@ export default function Menu(props) {
     color: 'aqua',
   };
   const searchProps = {
-    parentClass: 'mx-4 my-3',
-    className: 'w-[42rem]',
+    parentClass: 'mx-4 my-3 ',
+    className: 'w-[66rem]',
     size: 'small',
     sx: {
       '& .MuiOutlinedInput-root': {
@@ -56,8 +56,8 @@ export default function Menu(props) {
   };
 
   return (
-    <div className="sticky  flex">
-      <div id="sites" className="flex size-16 ">
+    <div className="flex">
+      <div id="sites" className="flex size-16">
         <Button
           style={{ borderRadius: '50%', marginLeft: '1rem', color: 'aqua' }}
         >

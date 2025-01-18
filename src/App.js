@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import { useState } from 'react';
 import SearchBar from './components/searchBar';
 import Menu from './components/menu';
 import Vid from './components/vid';
@@ -10,6 +11,7 @@ function App() {
   //   console.log(window.electronExpose);
   // });
   // add webview to ensure that we can see website
+  const [webView, webViewUpdate] = useState(true);
   const properties = {
     parentClass: 'text-black relative my-4',
     className: 'size-[40rem]',
@@ -53,18 +55,24 @@ function App() {
   };
 
   return (
-    <div className="App  ">
+    <div className="App ">
       <Menu />
-      <Vid vid="" />
-      <SearchBar
-        DIVClassName={properties.parentClass}
-        classname={properties.className}
-        ID={properties.id}
-        Label={properties.label}
-        Variant={properties.variant}
-        SX={properties.sx}
-        icon={<Google />}
-      />
+      {(webView && (
+        <>
+          <Vid vid="Xe7goRCq7pY" />
+          <SearchBar
+            DIVClassName={properties.parentClass}
+            classname={properties.className}
+            ID={properties.id}
+            Label={properties.label}
+            Variant={properties.variant}
+            SX={properties.sx}
+            icon={<Google />}
+          />
+        </>
+      )) || (
+        <webview className="h-[100vh] w-[100wh]" src="https://google.com" />
+      )}
     </div>
   );
 }
