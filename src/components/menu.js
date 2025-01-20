@@ -78,9 +78,13 @@ export default function Menu(props) {
           SX={searchProps.sx}
           icon={<Search />}
           // fix the issue with the search bar
-          toggleSearch={props.webViewUpdate}
-          search={props.webSearchUpdate}
+          toggleSearch={props.toggle}
+          search={props.updateSearch}
         />
+        {/* Attribute Link, for the shark icon
+        <a href="https://www.flaticon.com/free-icons/shark" title="shark icons">Shark icons created by max.icons - Flaticon</a> */}
+        {/* make clickable to return to started window */}
+        <img className="my-3" src="/images/shark.png" />
       </div>
     </div>
   );

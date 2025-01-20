@@ -9,6 +9,7 @@ export default function SearchBar(prop) {
     if (event.key === 'Enter') {
       prop.search(searchInput);
       prop.toggleSearch(false);
+      console.log();
     }
   };
   const changeHandler = (event) => {

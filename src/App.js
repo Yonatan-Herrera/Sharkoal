@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="App ">
-      <Menu toggleSearch={webViewUpdate} search={webSearchUpdate} />
+      <Menu toggle={webViewUpdate} updateSearch={webSearchUpdate} />
       {(webView && (
         <>
           <Vid vid="H2_FKs5rXyk" />
