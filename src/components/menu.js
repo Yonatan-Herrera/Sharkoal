@@ -77,6 +77,9 @@ export default function Menu(props) {
           SIZE={searchProps.size}
           SX={searchProps.sx}
           icon={<Search />}
+          // fix the issue with the search bar
+          toggleSearch={props.webViewUpdate}
+          search={props.webSearchUpdate}
         />
       </div>
     </div>

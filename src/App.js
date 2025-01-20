@@ -11,7 +11,9 @@ function App() {
   //   console.log(window.electronExpose);
   // });
   // add webview to ensure that we can see website
+
   const [webView, webViewUpdate] = useState(true);
+  const [webSearch, webSearchUpdate] = useState('');
   const properties = {
     parentClass: 'text-black relative my-4',
     className: 'size-[40rem]',
@@ -56,10 +58,10 @@ function App() {
 
   return (
     <div className="App ">
-      <Menu />
+      <Menu toggleSearch={webViewUpdate} search={webSearchUpdate} />
       {(webView && (
         <>
-          <Vid vid="Xe7goRCq7pY" />
+          <Vid vid="H2_FKs5rXyk" />
           <SearchBar
             DIVClassName={properties.parentClass}
             classname={properties.className}
@@ -68,10 +70,16 @@ function App() {
             Variant={properties.variant}
             SX={properties.sx}
             icon={<Google />}
+            toggleSearch={webViewUpdate}
+            search={webSearchUpdate}
           />
         </>
       )) || (
-        <webview className="h-[100vh] w-[100wh]" src="https://google.com" />
+        <webview
+          id="webSearch"
+          className="h-[100vh] w-[100wh]"
+          src={'https://google.com/search?q=' + webSearch}
+        />
       )}
     </div>
   );

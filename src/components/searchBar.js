@@ -7,7 +7,8 @@ export default function SearchBar(prop) {
 
   const search = (event) => {
     if (event.key === 'Enter') {
-      window.location.href = 'https://google.com/search?q=' + searchInput;
+      prop.search(searchInput);
+      prop.toggleSearch(false);
     }
   };
   const changeHandler = (event) => {
