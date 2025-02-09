@@ -1,6 +1,12 @@
 import React from 'react';
-import { Button } from '@mui/material';
-import { ArrowBack, ArrowForward, Refresh, Search } from '@mui/icons-material';
+import { Button, Fab } from '@mui/material';
+import {
+  ArrowBack,
+  ArrowForward,
+  Refresh,
+  Search,
+  Settings,
+} from '@mui/icons-material';
 import SearchBar from './searchBar';
 
 // properties for the search bar
@@ -11,6 +17,11 @@ import SearchBar from './searchBar';
         Variant={properties.variant}
         SX={properties.sx} */
 export default function Menu(props) {
+  const returnHome = () => {
+    props.updateSearch('');
+    props.toggle(true);
+  };
+
   const btnStyle = {
     borderRadius: '50%',
     color: 'aqua',
@@ -58,6 +69,9 @@ export default function Menu(props) {
   return (
     <div className="flex">
       <div id="sites" className="flex size-16">
+        <Fab style={{ color: 'white', marginLeft: '2rem', marginTop: '5px' }}>
+          <Settings />
+        </Fab>
         <Button
           style={{ borderRadius: '50%', marginLeft: '1rem', color: 'aqua' }}
         >
@@ -77,14 +91,18 @@ export default function Menu(props) {
           SIZE={searchProps.size}
           SX={searchProps.sx}
           icon={<Search />}
-          // fix the issue with the search bar
           toggleSearch={props.toggle}
           search={props.updateSearch}
         />
         {/* Attribute Link, for the shark icon
         <a href="https://www.flaticon.com/free-icons/shark" title="shark icons">Shark icons created by max.icons - Flaticon</a> */}
         {/* make clickable to return to started window */}
-        <img className="my-3" src="/images/shark.png" />
+        <img
+          onClick={returnHome}
+          className="my-3"
+          src="/images/shark.png"
+          alt="Shark Icon"
+        />
       </div>
     </div>
   );

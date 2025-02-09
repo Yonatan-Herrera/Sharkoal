@@ -3,7 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import SearchBar from './components/searchBar';
 import Menu from './components/menu';
-import Vid from './components/vid';
 import { Google } from '@mui/icons-material';
 function App() {
   // document.addEventListener('click', async () => {
@@ -15,8 +14,8 @@ function App() {
   const [webView, webViewUpdate] = useState(true);
   const [webSearch, webSearchUpdate] = useState('');
   const properties = {
-    parentClass: 'text-black relative my-4',
-    className: 'size-[40rem]',
+    parentClass: 'text-black relative my-4 ',
+    className: 'size-[40rem] ',
     id: 'outlined-basic',
     label: 'Search',
     variant: 'outlined',
@@ -61,7 +60,7 @@ function App() {
       <Menu toggle={webViewUpdate} updateSearch={webSearchUpdate} />
       {(webView && (
         <>
-          <Vid vid="H2_FKs5rXyk" />
+          <p className="text-white font-bold my-16 text-4xl"> Sharkoal </p>
           <SearchBar
             DIVClassName={properties.parentClass}
             classname={properties.className}
