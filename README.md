@@ -1,2 +1,2 @@
 # Sharkoal
-A web browser for fun but to pick up Electron js
+A web browser for fun and also to pick up Electron js
