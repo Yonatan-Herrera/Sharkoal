@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './components/searchBar';
 import Menu from './components/menu';
 import { Google } from '@mui/icons-material';
+import Tabs from './components/tabs';
+
 function App() {
   // document.addEventListener('click', async () => {
   //   // const response = await window.electronExpose.sendMessage();
@@ -13,6 +15,22 @@ function App() {
 
   const [webView, webViewUpdate] = useState(true);
   const [webSearch, webSearchUpdate] = useState('');
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    if (!webView) {
+      const webviewElement = document.getElementById('webSearch');
+      if (webviewElement) {
+        webviewElement.addEventListener('did-navigate', (event) => {
+          setCurrentUrl(event.url);
+        });
+        webviewElement.addEventListener('did-navigate-in-page', (event) => {
+          setCurrentUrl(event.url);
+        });
+      }
+    }
+  }, [webView]);
+
   const properties = {
     parentClass: 'text-black relative my-4 ',
     className: 'size-[40rem] ',
@@ -57,7 +75,12 @@ function App() {
 
   return (
     <div className="App ">
-      <Menu toggle={webViewUpdate} updateSearch={webSearchUpdate} />
+      <Tabs />
+      <Menu
+        toggle={webViewUpdate}
+        updateSearch={webSearchUpdate}
+        initialValue={currentUrl}
+      />
       {(webView && (
         <>
           <p className="text-white font-bold my-16 text-4xl"> Sharkoal </p>

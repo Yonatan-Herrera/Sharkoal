@@ -9,13 +9,6 @@ import {
 } from '@mui/icons-material';
 import SearchBar from './searchBar';
 
-// properties for the search bar
-/* DIVClassName={properties.parentClass}
-        classname={properties.className}
-        ID={properties.id}
-        Label={properties.label}
-        Variant={properties.variant}
-        SX={properties.sx} */
 export default function Menu(props) {
   const returnHome = () => {
     props.updateSearch('');
@@ -93,13 +86,14 @@ export default function Menu(props) {
           icon={<Search />}
           toggleSearch={props.toggle}
           search={props.updateSearch}
+          initialValue={props.initialValue}
         />
         {/* Attribute Link, for the shark icon
         <a href="https://www.flaticon.com/free-icons/shark" title="shark icons">Shark icons created by max.icons - Flaticon</a> */}
         {/* make clickable to return to started window */}
         <img
           onClick={returnHome}
-          className="my-3"
+          className="my-3 hover:cursor-pointer"
           src="/images/shark.png"
           alt="Shark Icon"
         />

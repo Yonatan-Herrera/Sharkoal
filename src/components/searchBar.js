@@ -1,9 +1,16 @@
 // import react from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 export default function SearchBar(prop) {
   const [searchInput, searchInputUpdate] = useState('');
+
+  useEffect(() => {
+    if (prop.initialValue) {
+      searchInputUpdate(prop.initialValue);
+    }
+  }, [prop.initialValue]);
 
   const search = (event) => {
     if (event.key === 'Enter') {
