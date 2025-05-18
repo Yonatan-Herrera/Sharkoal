@@ -60,13 +60,17 @@ export default function Menu(props) {
   };
 
   return (
-    <div className="flex">
+    <div className="flex bg-black">
       <div id="sites" className="flex size-16">
         <Fab style={{ color: 'white', marginLeft: '2rem', marginTop: '5px' }}>
           <Settings />
         </Fab>
         <Button
           style={{ borderRadius: '50%', marginLeft: '1rem', color: 'aqua' }}
+          onClick={() => {
+            const web = document.querySelector('#webSearch');
+            web.src = props.sitesVisited._prev();
+          }}
         >
           <ArrowBack />
         </Button>
@@ -74,7 +78,13 @@ export default function Menu(props) {
           {' '}
           <ArrowForward />
         </Button>
-        <Button style={btnStyle}>
+        <Button
+          style={btnStyle}
+          onClick={() => {
+            const web = document.querySelector('#webSearch');
+            web.src = props.initialValue;
+          }}
+        >
           {' '}
           <Refresh />
         </Button>
@@ -87,6 +97,7 @@ export default function Menu(props) {
           toggleSearch={props.toggle}
           search={props.updateSearch}
           initialValue={props.initialValue}
+          sitesVisited={props.sitesVisited}
         />
         {/* Attribute Link, for the shark icon
         <a href="https://www.flaticon.com/free-icons/shark" title="shark icons">Shark icons created by max.icons - Flaticon</a> */}

@@ -5,7 +5,7 @@ import SearchBar from './components/searchBar';
 import Menu from './components/menu';
 import { Google } from '@mui/icons-material';
 import Tabs from './components/tabs';
-
+import SitesTracker from './components/webSiteTracker';
 function App() {
   // document.addEventListener('click', async () => {
   //   // const response = await window.electronExpose.sendMessage();
@@ -16,6 +16,12 @@ function App() {
   const [webView, webViewUpdate] = useState(true);
   const [webSearch, webSearchUpdate] = useState('');
   const [currentUrl, setCurrentUrl] = useState('');
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const sites = new SitesTracker();
+
+  const handleWindowSize = (newWidth, newHeight) => {
+    setWindowSize({ width: newWidth, height: newHeight });
+  };
 
   useEffect(() => {
     if (!webView) {
@@ -29,6 +35,7 @@ function App() {
         });
       }
     }
+    window.electronSize.onWindowSize(handleWindowSize);
   }, [webView]);
 
   const properties = {
@@ -74,12 +81,14 @@ function App() {
   };
 
   return (
-    <div className="App ">
+    <div className="App bg-black " sx={{ windowSize }}>
       <Tabs />
       <Menu
         toggle={webViewUpdate}
         updateSearch={webSearchUpdate}
         initialValue={currentUrl}
+        searchVal={webSearch}
+        sitesVisited={sites}
       />
       {(webView && (
         <>
@@ -94,6 +103,7 @@ function App() {
             icon={<Google />}
             toggleSearch={webViewUpdate}
             search={webSearchUpdate}
+            sitesVisited={sites}
           />
         </>
       )) || (
