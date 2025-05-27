@@ -2,7 +2,6 @@
 import { TextField, InputAdornment } from '@mui/material';
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 export default function SearchBar(prop) {
   const [searchInput, searchInputUpdate] = useState('');
 
@@ -16,7 +15,6 @@ export default function SearchBar(prop) {
     if (event.key === 'Enter') {
       prop.search(searchInput);
       prop.toggleSearch(false);
-      prop.sitesVisited._add(searchInput);
     }
   };
   const changeHandler = (event) => {

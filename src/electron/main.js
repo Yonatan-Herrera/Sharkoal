@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcRenderer } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 function createWindow() {
   const win = new BrowserWindow({
@@ -13,7 +13,7 @@ function createWindow() {
   });
 
   win.loadURL('http://localhost:3000');
-  ipcRenderer.send('resize', (win.width, win.height));
+  win.webContents.send('resize', (win.width, win.height));
 }
 
 app.whenReady().then(() => {

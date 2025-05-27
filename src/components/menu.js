@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Button, Fab } from '@mui/material';
 import {
   ArrowBack,
@@ -60,7 +60,7 @@ export default function Menu(props) {
   };
 
   return (
-    <div className="flex bg-black">
+    <div className="flex bg-black w-fit">
       <div id="sites" className="flex size-16">
         <Fab style={{ color: 'white', marginLeft: '2rem', marginTop: '5px' }}>
           <Settings />
@@ -69,7 +69,6 @@ export default function Menu(props) {
           style={{ borderRadius: '50%', marginLeft: '1rem', color: 'aqua' }}
           onClick={() => {
             const web = document.querySelector('#webSearch');
-            web.src = props.sitesVisited._prev();
           }}
         >
           <ArrowBack />
