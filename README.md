@@ -1,6 +1,3 @@
-# Sharkoal
+#sharkoal
 
-A web browser for fun and also to pick up Electron js
-
-Combining Features from browsers that I like such as Arc, Chrome, Firefox, etc.
-
+    A web browser I built to learn Electron.js
