@@ -8,6 +8,11 @@ class ElectronAPP {
     const win = new BrowserWindow({
       width: 800,
       height: 600,
+      webPreferences: {
+        contextIsolation: true,
+        nodeIntegration: false,
+        webviewTag: true,
+      },
     });
     win.loadURL('http://localhost:3000');
   }
