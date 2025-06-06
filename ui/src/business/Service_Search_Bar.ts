@@ -1,5 +1,6 @@
 import Search_Bar from '../models/search_bar';
 
+// Redo, add a way to track index, because localStorage adds them randomly
 class UseSearchBar implements Search_Bar {
   URL: string;
   index: number;
