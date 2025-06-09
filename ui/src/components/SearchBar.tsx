@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { TextField } from '@mui/material';
-
-const SearchBar: React.FC = () => {
+import Props from '../models/props_search_bar';
+const SearchBar: React.FC<Props> = (toggle) => {
   const [searchQuery, updateSearchQuery] = useState<string>('');
 
   // Handles Search Query Change
@@ -11,13 +11,24 @@ const SearchBar: React.FC = () => {
   ): void => {
     updateSearchQuery(event.target.value);
   };
+  const handleSearch = (): void => {
+    toggle.toggle(true);
+    const webview: HTMLElement | null = document.querySelector('webview');
+    if (webview) {
+      const searchURL = `https://google.com/search?q=${searchQuery}`;
+      webview.setAttribute('src', searchURL);
+      console.log('URL');
+    } else {
+      console.error('Webview Element not working');
+    }
+  };
 
   // Handles Searching on Enter
   useEffect(() => {
     const searchBar = document.getElementById('search-bar');
     searchBar?.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        console.log('search', searchQuery);
+        handleSearch();
       }
     });
     return () => {
@@ -64,6 +75,7 @@ const SearchBar: React.FC = () => {
         variant="outlined"
         value={searchQuery}
         onChange={handleSearchChange}
+        onClick={handleSearch}
       ></TextField>
     </div>
   );

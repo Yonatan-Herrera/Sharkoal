@@ -9,14 +9,14 @@ function App() {
   return (
     <div>
       <div>
-        <SearchBar />
+        <SearchBar toggle={setHome} />
       </div>
-      <div style={{ width: '100%', height: '85vh' }}> </div>
+      {!home && <div style={{ width: '100%', height: '85vh' }}> </div>}
       {home && (
         <div style={{ width: '100%', height: '85vh' }}>
           <webview
             style={{ width: '100%', height: '100%' }}
-            src="https://google.com/search?"
+            src="https://google.com"
           ></webview>
         </div>
       )}
