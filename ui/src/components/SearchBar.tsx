@@ -11,6 +11,8 @@ const SearchBar: React.FC<Props> = (toggle) => {
   ): void => {
     updateSearchQuery(event.target.value);
   };
+
+  // Handles Search
   const handleSearch = (): void => {
     toggle.toggle(true);
     const webview: HTMLElement | null = document.querySelector('webview');
