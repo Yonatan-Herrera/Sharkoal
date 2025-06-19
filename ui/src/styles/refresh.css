@@ -1,0 +1,11 @@
+.refresh:hover {
+  background-color: gray;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+@media (width <= 600px) {
+  .refresh {
+    left: '15%';
+  }
+}

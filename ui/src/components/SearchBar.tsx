@@ -14,8 +14,8 @@ const SearchBar: React.FC<Props> = (toggle) => {
 
   // Handles Search
   const handleSearch = (): void => {
-    toggle.toggle(true);
     const webview: HTMLElement | null = document.querySelector('webview');
+    toggle.toggle(false);
     if (webview) {
       const searchURL = `https://google.com/search?q=${searchQuery}`;
       webview.setAttribute('src', searchURL);
